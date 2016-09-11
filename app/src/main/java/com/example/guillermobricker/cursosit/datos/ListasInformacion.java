@@ -10,15 +10,10 @@ public class ListasInformacion {
     Context context;
 
     public String[] lista() {
+        CursosDBHelper cursosDBHelper = new CursosDBHelper(context);
+        String[] arreglo = cursosDBHelper.recuperaCursos().toArray(new String[cursosDBHelper.recuperaCursos().size()]);
+        return arreglo;
 
-            CursosDBHelper cursosDBHelper = new CursosDBHelper(context);
-            String[] listacursos = new String[cursosDBHelper.recuperaCursos().size()];
-
-            listacursos = cursosDBHelper.recuperaCursos().toArray(listacursos);
-
-            for (String s : listacursos)
-                System.out.println(s);
-            return listacursos;
 
     }
 
