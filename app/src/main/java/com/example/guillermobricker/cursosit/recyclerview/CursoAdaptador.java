@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class CursoAdaptador extends RecyclerView.Adapter<CursoAdaptador.ViewHolder> {
 
-    ListasInformacion li = new ListasInformacion();
+    ListasInformacion arreglos = new ListasInformacion();
     private String[] titles = {"Curso 1", "Curso 2", "Curso 3"};
     private String[] descripcion = {"Descripcion 1", "Descripcion 2", "Descripcion 3"};
     private int[] images = {R.mipmap.img_material, R.mipmap.img_material, R.mipmap.img_material};
@@ -56,10 +56,8 @@ public class CursoAdaptador extends RecyclerView.Adapter<CursoAdaptador.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
-
-
-        //viewHolder.itemTitle.setText(li.lista()[i]);
-        viewHolder.itemTitle.setText(titles[i]);
+        viewHolder.itemTitle.setText(arreglos.lista()[i]);
+       // viewHolder.itemTitle.setText(titles[i]);
         viewHolder.itemDetail.setText(descripcion[i]);
         viewHolder.itemImage.setImageResource(images[i]);
     }
@@ -67,9 +65,8 @@ public class CursoAdaptador extends RecyclerView.Adapter<CursoAdaptador.ViewHold
     @Override
     public int getItemCount() {
 
-
-        return titles.length;
-        //return li.lista().length;
+        return arreglos.lista().length;
+        //return titles.length;
     }
 
 

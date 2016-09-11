@@ -54,8 +54,6 @@ public class CursosDBHelper extends SQLiteOpenHelper {
         datosCurso(sqLiteDatabase, new Curso("C-03", "Fundamentos Inge", "19", "09", "2016",
                 "HTML y CSS a nivel intermedio, Maquetacion y Prototipado Web", "fundamentos_diseño.jpg"));
 
-
-
     }
 
     public long datosCurso(SQLiteDatabase db, Curso curso) {
