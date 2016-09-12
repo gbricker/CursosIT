@@ -23,8 +23,9 @@ public abstract class DataBaseManager {
         db.close();
     }
 
-    abstract void insertar(String id, String nom_C, String dia_I, String mes_I, String anio_I, String des_C, String img_uri);
+
     abstract public Cursor cargaCursor();
+    abstract public Cursor leer_ID (String id);
 
 
 
