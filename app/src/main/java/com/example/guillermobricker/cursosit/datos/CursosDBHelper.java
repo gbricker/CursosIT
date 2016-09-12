@@ -39,8 +39,8 @@ public class CursosDBHelper extends SQLiteOpenHelper {
         //Crear tabla
         db.execSQL(DataBaseManagerCurso.CREATE_TABLE);
         //Insertar Datos
-        db.insert(NOMBRE_TABLA,null,gcv(null, "Fundamentos del Diseño Web", "19","09","2016","HTML y CSS a nivel intermedio, Maquetacion y Prototipado Web"));
-        db.insert(NOMBRE_TABLA,null,gcv(null,"Linux Administrator", "26","09","2016","Instalacion y configuracion de Linux, Manejo de redes TCP/IP"));
+        db.insert(NOMBRE_TABLA,null,gcv(null, "Fundamentos del Diseño Web", "19","9","2016","HTML y CSS a nivel intermedio, Maquetacion y Prototipado Web"));
+        db.insert(NOMBRE_TABLA,null,gcv(null,"Linux Administrator", "26","9","2016","Instalacion y configuracion de Linux, Manejo de redes TCP/IP"));
         db.insert(NOMBRE_TABLA,null,gcv(null, "Programador de Apps Móviles Jr.", "03","10","2016","Manejo adecuado de herramientas de Android Studio"));
         db.insert(NOMBRE_TABLA,null,gcv(null,"Curso Online: Introducción a Apps Móviles", "19","10","2016","Operacion de los servicios Android"));
 
