@@ -1,23 +1,16 @@
 package com.example.guillermobricker.cursosit.recyclerview;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.guillermobricker.cursosit.R;
 import com.example.guillermobricker.cursosit.datos.Curso;
-import com.example.guillermobricker.cursosit.datos.CursosDBHelper;
-import com.example.guillermobricker.cursosit.datos.ListasInformacion;
-import com.example.guillermobricker.cursosit.pantallas.MainActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,22 +18,27 @@ import java.util.List;
  */
 public class CursoAdaptador extends RecyclerView.Adapter<CursoAdaptador.ViewHolder> {
 
-    ListasInformacion arreglos = new ListasInformacion();
-    private String[] titles = {"Curso 1", "Curso 2", "Curso 3"};
-    private String[] descripcion = {"Descripcion 1", "Descripcion 2", "Descripcion 3"};
-    private int[] images = {R.mipmap.img_material, R.mipmap.img_material, R.mipmap.img_material};
+    private final Context mainContext;
+    private final List<Curso> items;
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public CursoAdaptador(Context mainContext, List<Curso> items) {
+        this.mainContext = mainContext;
+        this.items = items;
+    }
 
-        public ImageView itemImage;
-        public TextView itemTitle;
-        public TextView itemDetail;
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+
+        //Campos de los items
+        protected ImageView itemImage;
+        protected TextView itemTitle;
+        protected TextView itemDetail;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            itemImage = (ImageView) itemView.findViewById(R.id.img_card);
-            itemTitle = (TextView) itemView.findViewById(R.id.title_card);
-            itemDetail = (TextView) itemView.findViewById(R.id.descrip_card);
+            this.itemImage = (ImageView) itemView.findViewById(R.id.img_card);
+            this.itemTitle = (TextView) itemView.findViewById(R.id.title_card);
+            this.itemDetail = (TextView) itemView.findViewById(R.id.descripcion_card);
 
         }
     }
@@ -49,24 +47,24 @@ public class CursoAdaptador extends RecyclerView.Adapter<CursoAdaptador.ViewHold
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.content_cardview, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
-
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
-        viewHolder.itemTitle.setText(arreglos.lista()[i]);
-       // viewHolder.itemTitle.setText(titles[i]);
-        viewHolder.itemDetail.setText(descripcion[i]);
-        viewHolder.itemImage.setImageResource(images[i]);
+        Curso item = items.get(i);
+        viewHolder.itemView.setTag(item);
+        viewHolder.itemTitle.setText(item.getNombre_Curso());
+        viewHolder.itemDetail.setText(item.getDes_Curso());
+        viewHolder.itemImage.setImageResource(Integer.parseInt(item.getImg_Uri()));
+
+        // private int[] images = {R.mipmap.img_material, R.mipmap.img_material, R.mipmap.img_material};
     }
 
     @Override
     public int getItemCount() {
-
-        return arreglos.lista().length;
-        //return titles.length;
+        return items.size();
     }
 
 

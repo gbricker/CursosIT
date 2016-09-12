@@ -15,6 +15,13 @@ public class Curso {
     private String des_Curso;
     private String img_Uri;
 
+    public Curso() {
+    }
+    public Curso(String id, String nombre_curso){
+        this.id=id;
+        this.nombre_Curso=nombre_curso;
+    }
+
     public Curso(String id, String nombre_curso, String dia_inicio, String mes_inicio, String anio_inicio, String des_curso, String img_Uri) {
         this.id = id;
         this.nombre_Curso = nombre_curso;
@@ -81,15 +88,5 @@ public class Curso {
         this.img_Uri = img_Uri;
     }
 
-    public ContentValues toContentValues() {
-        ContentValues values = new ContentValues();
-        values.put(CursosContract.CursosEntry.ID, id);
-        values.put(CursosContract.CursosEntry.NOMBRE_CURSO, nombre_Curso);
-        values.put(CursosContract.CursosEntry.DIA_INICIO, dia_Inicio);
-        values.put(CursosContract.CursosEntry.MES_INICIO, mes_Inicio);
-        values.put(CursosContract.CursosEntry.ANIO_INICIO, anio_Inicio);
-        values.put(CursosContract.CursosEntry.DES_CURSO, des_Curso);
-        values.put(CursosContract.CursosEntry.IMG_URI, img_Uri);
-        return values;
-    }
+
 }
