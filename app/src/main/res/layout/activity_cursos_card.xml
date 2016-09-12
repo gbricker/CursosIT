@@ -28,8 +28,8 @@
                 android:id="@+id/imgToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/img_material"
+                android:scaleType="fitXY"
+                android:src="@mipmap/toolbar"
                 app:layout_collapseMode="parallax" />
 
             <include layout="@layout/toolbar" />
@@ -53,21 +53,11 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
-
-
-
-
-
-
-
-
 
 </android.support.design.widget.CoordinatorLayout>
 

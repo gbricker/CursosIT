@@ -16,8 +16,9 @@
             android:id="@+id/img_card"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/img_material" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/fundamentos" />
 
         <TextView
 
@@ -32,24 +33,23 @@
             android:id="@+id/descripcion_card"
             style="@style/txt_descrip"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/txt_id"
             style="@style/txt_descrip"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            />
+            android:layout_height="0dp" />
+
         <Button
             android:id="@+id/btn_VerMas"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/card_text"
+            android:layout_gravity="right"
             android:text="Ver mas"
-            android:textColor="?attr/colorPrimary"
-            android:layout_gravity="right" />
+            android:textColor="?attr/colorPrimary" />
 
 
     </LinearLayout>

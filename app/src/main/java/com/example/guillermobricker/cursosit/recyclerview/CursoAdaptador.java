@@ -23,7 +23,7 @@ public class CursoAdaptador extends RecyclerView.Adapter<CursoAdaptador.ViewHold
 
     private final Context mainContext;
     private final List<Curso> items;
-    private int[] images = {R.mipmap.img_material, R.mipmap.img_material, R.mipmap.img_material, R.mipmap.img_material};
+    private int[] images = {R.mipmap.fundamentos, R.mipmap.linux, R.mipmap.programador, R.mipmap.cursos};
 
     public CursoAdaptador(Context mainContext, List<Curso> items) {
         this.mainContext = mainContext;

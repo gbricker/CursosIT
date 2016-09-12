@@ -1,6 +1,7 @@
 package com.example.guillermobricker.cursosit.pantallas;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,20 +52,21 @@ public class Informacion extends AppCompatActivity {
         int Y1=Integer.parseInt(item.getAnio_Inicio());
         int M1= Integer.parseInt(item.getMes_Inicio());
         int D1= Integer.parseInt(item.getDia_Inicio());
-        Toast.makeText(this,"La fecha del curso es: "+ D1 +"/" +M1 +"/"+ Y1,Toast.LENGTH_LONG).show();
 
-        Toast.makeText(this,"La diferencia de dias es: "+ calcula(D1,M1,Y1),Toast.LENGTH_LONG).show();
-
+        //Pone leyenda al boton dinamico de acuerdo a la proximidad de fecha
         if(calcula(D1,M1,Y1)<=7){
             btn_Dinamico.setText("Inscripción");
         }else{
             btn_Dinamico.setText("Proximamente");
         }
 
+        //Accion del boton dinamico
         btn_Dinamico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Informacion.this, PaginaWeb.class);
+                Uri uri = Uri.parse("http://www.it-okcenter.com/calendario/"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                //Intent intent = new Intent(Informacion.this, PaginaWeb.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +85,6 @@ public class Informacion extends AppCompatActivity {
         diaA = calendar.get(Calendar.DAY_OF_MONTH);
         mesA = calendar.get(Calendar.MONTH)+1;
         anioA = calendar.get(Calendar.YEAR);
-        Toast.makeText(this,"La fecha de hoy es: "+ diaA + "/"+ mesA + "/ " + anioA,Toast.LENGTH_LONG).show();
 
         Calendar fechaA = Calendar.getInstance(), fechaB=Calendar.getInstance();
 
@@ -95,7 +96,8 @@ public class Informacion extends AppCompatActivity {
         fechaB.set(Calendar.MONTH,mesB);
         fechaB.set(Calendar.DAY_OF_MONTH,diaB);
 
-        fechaB.add(Calendar.YEAR,-anioA); //El año de la fecha b, menos el año a
+        //Resta la fecha B menos la fecha A
+        fechaB.add(Calendar.YEAR,-anioA);
         fechaB.add(Calendar.MONTH,-mesA);
         fechaB.add(Calendar.DAY_OF_MONTH,-diaA);
 
